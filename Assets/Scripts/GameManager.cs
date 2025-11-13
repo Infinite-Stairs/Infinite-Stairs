@@ -233,11 +233,12 @@ public class GameManager : MonoBehaviour {
             else settingButtons[i].image.color = new Color(1, 1, 1, 0.5f);
         }
 
-        for (int i = 4; i < 6; i++) {
-            on = dslManager.GetSettingOn("VibrateBtn");
-            if (on) settingButtons[i].image.color = new Color(1, 1, 1, 1f);
-            else settingButtons[i].image.color = new Color(1, 1, 1, 0.5f);
-        }
+        // 진동 버튼 기능 비활성화
+        // for (int i = 4; i < 6; i++) {
+        //     on = dslManager.GetSettingOn("VibrateBtn");
+        //     if (on) settingButtons[i].image.color = new Color(1, 1, 1, 1f);
+        //     else settingButtons[i].image.color = new Color(1, 1, 1, 0.5f);
+        // }
     }
 
 
@@ -249,17 +250,18 @@ public class GameManager : MonoBehaviour {
                 else settingButtons[i].image.color = new Color(1, 1, 1, 0.5f);
             }
         if (btn.name == "SoundBtn") {
-            for (int i = 2; i < 4; i++) {               
+            for (int i = 2; i < 4; i++) {
                 if (on) settingButtons[i].image.color = new Color(1, 1, 1, 1f);
                 else settingButtons[i].image.color = new Color(1, 1, 1, 0.5f);
             }
         }
-        if (btn.name == "VibrateBtn") {
-            for (int i = 4; i < 6; i++) {
-                if (on) settingButtons[i].image.color = new Color(1, 1, 1, 1f);
-                else settingButtons[i].image.color = new Color(1, 1, 1, 0.5f);
-            }
-        }
+        // 진동 버튼 기능 비활성화
+        // if (btn.name == "VibrateBtn") {
+        //     for (int i = 4; i < 6; i++) {
+        //         if (on) settingButtons[i].image.color = new Color(1, 1, 1, 1f);
+        //         else settingButtons[i].image.color = new Color(1, 1, 1, 0.5f);
+        //     }
+        // }
     }
 
     public void SettingOnOff(string type) {
@@ -270,13 +272,14 @@ public class GameManager : MonoBehaviour {
                 break;
             case "SoundBtn":
                 bool isOn = !dslManager.GetSettingOn(type);
-                for (int i = 0; i < sound.Length; i++) 
+                for (int i = 0; i < sound.Length; i++)
                     sound[i].mute = isOn;
                 break;
-            case "VibrateBtn":
-                vibrationOn = dslManager.GetSettingOn(type);
-                break;
-        }       
+            // 진동 버튼 기능 비활성화
+            // case "VibrateBtn":
+            //     vibrationOn = dslManager.GetSettingOn(type);
+            //     break;
+        }
     }
 
     void Vibration()

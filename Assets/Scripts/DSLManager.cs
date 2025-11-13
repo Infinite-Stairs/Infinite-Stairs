@@ -233,9 +233,10 @@ public class DSLManager : MonoBehaviour {
         if (btn.name == "SoundBtn") {
             informs[0].soundEffectOn = !informs[0].soundEffectOn;
         }
-        if (btn.name == "VibrateBtn") {
-            informs[0].vibrationOn = !informs[0].vibrationOn;
-        }
+        // 진동 버튼 기능 비활성화
+        // if (btn.name == "VibrateBtn") {
+        //     informs[0].vibrationOn = !informs[0].vibrationOn;
+        // }
         DataSave();
         gameManager.SettingOnOff(btn.name);
         gameManager.SettingBtnChange(btn);
