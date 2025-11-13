@@ -304,7 +304,15 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(i);
     }
 
-    
+    // 대시보드로 이동 (추후 웹 대시보드 연동 예정)
+    public void OpenDashboard()
+    {
+        Debug.Log("대시보드");
+        // TODO: 웹 대시보드 URL로 이동하는 코드 추가 예정
+        // Application.OpenURL("https://dashboard-url.com");
+    }
+
+
     private void OnApplicationQuit() {
         dslManager.SaveMoney(player.money);
     }   

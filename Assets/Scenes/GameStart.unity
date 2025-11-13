@@ -3598,7 +3598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300036, guid: ae4e9883efeff1e47a0c5d4de474704b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c79bd9e208084325b6d3c667a6ac173, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3659,14 +3659,14 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1583425216}
-          m_MethodName: LoadScene
-          m_Mode: 3
+          m_MethodName: OpenDashboard
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
+            m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument:
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 464379068}
