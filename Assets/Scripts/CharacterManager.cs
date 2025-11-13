@@ -5,38 +5,23 @@ using UnityEngine.UI;
 
 public class CharacterManager : MonoBehaviour
 {
-    public int index;
-    string[] characterNames = { "회사원", "래퍼", "비서", "복서", "치어리더", "보안관", "배관공" };
+    public int index = 0;  // 회사원으로 고정
     public DSLManager dslManager;
-    public GameObject selectBtn, purchaseBtn;
     AudioSource sound;
     public Image characterImage;
-    public Text characterName, price;
+    public Text characterName;
 
     private void Awake() {
-        index = dslManager.GetSelectedCharIndex();
+        index = 0;  // 항상 회사원 (인덱스 0)
         sound = GetComponent<AudioSource>();
         sound.mute = !dslManager.GetSettingOn("SoundBtn");
-        ArrowBtn("null");
+        DisplayCharacter();
     }
 
-
-    //Change the character's image, name and price when flipping from side to side
-    public void ArrowBtn(string dir)
+    // 회사원 캐릭터 정보 표시
+    private void DisplayCharacter()
     {
-        if (dir == "Right") {
-             if (++index == dslManager.characterSprite.Length-1) index = 0; }
-
-        if (dir == "Left") { 
-             if (--index == -1) index = dslManager.characterSprite.Length - 2; }
-
-        //Change the character information of the index
-        characterImage.sprite = dslManager.characterSprite[index];
-        characterName.text = characterNames[index];
-        price.text = "￦" + dslManager.GetPrice().ToString();
-
-        //Determining the type of button according to purchase
-        selectBtn.SetActive(dslManager.IsPurchased(index));
-        purchaseBtn.SetActive(!dslManager.IsPurchased(index));
+        characterImage.sprite = dslManager.characterSprite[0];
+        characterName.text = "회사원";
     }
 }

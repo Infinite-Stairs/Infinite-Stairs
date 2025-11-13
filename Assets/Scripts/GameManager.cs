@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
     public Image gauge;
     public Button[] settingButtons;
 
-    int score, sceneCount, selectedIndex;
+    int score, sceneCount, selectedIndex = 0;  // 회사원으로 고정
     public bool gaugeStart = false, vibrationOn = true, isGamePaused = false;
     float gaugeRedcutionRate = 0.0025f;
     public bool[] IsChangeDir = new bool[20];
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour {
 
 
     void Awake() {
+        selectedIndex = 0;  // 항상 회사원 사용
         players[selectedIndex].SetActive(true);
         player = players[selectedIndex].GetComponent<Player>();
 
@@ -210,7 +211,7 @@ public class GameManager : MonoBehaviour {
 
     //#.Setting
     public void SoundInit() {
-        selectedIndex = dslManager.GetSelectedCharIndex();
+        selectedIndex = 0;  // 항상 회사원
         player = players[selectedIndex].GetComponent<Player>();
         sound[3] = player.sound[0];
         sound[4] = player.sound[1];

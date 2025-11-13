@@ -128,47 +128,18 @@ public class DSLManager : MonoBehaviour {
 
 
     //#.Select Character
-    //Select character and save character index
-    public void SaveCharacterIndex() {
-        for (int i = 0; i < characters.Count; i++)
-            characters[i].selected = false;
-        characters[CharacterManager.index].selected = true;
-        DataSave();
-        SceneManager.LoadScene(0);
-    }
-
+    // 항상 회사원 (인덱스 0) 반환
     public int GetSelectedCharIndex() {
-        DataLoad();
-        for (int i = 0; i < characters.Count; i++)
-            if (characters[i].selected) return i;
         return 0;
     }
 
 
 
 
-    //#.Purchase Character
+    //#.Purchase Character (더 이상 사용되지 않음 - 회사원으로 고정)
     public bool IsPurchased(int index) {
-        DataLoad();
-        return characters[index].purchased;
+        return true;  // 회사원은 항상 구매된 상태
     }
-
-    public void SaveCharacterPurchased(Animator obj) {
-        if (characters[CharacterManager.index].price > informs[0].money)
-            obj.GetComponent<Animator>().SetTrigger("notice");
-        else {
-            //Edit the data after buying a character
-            characters[CharacterManager.index].purchased = true;
-            DataSave();
-            DataLoad();
-            informs[0].money -= characters[CharacterManager.index].price;
-            DataSave();
-            LoadMoney(informs[0].money);
-            CharacterManager.ArrowBtn("null");
-        }
-    }
-
-    public int GetPrice() { return characters[CharacterManager.index].price; }
 
 
 
